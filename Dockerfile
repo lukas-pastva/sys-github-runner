@@ -1,7 +1,6 @@
 FROM docker:23.0.6-dind
 
 # The environment variables necessary for the GitHub Runner
-ENV GITHUB_RUNNER_VERSION "2.277.1"
 ENV RUNNER_NAME "github-runner"
 ENV GITHUB_PAT "<Your PAT>"
 ENV RUNNER_WORKDIR "_work"
@@ -16,16 +15,10 @@ RUN apk add --no-cache bc gettext jq unzip zip p7zip
 RUN mkdir actions-runner && cd actions-runner
 
 # Download the latest version of GitHub Runner
-RUN curl -O -L https://github.com/actions/runner/releases/download/v${GITHUB_RUNNER_VERSION}/actions-runner-linux-x64-${GITHUB_RUNNER_VERSION}.tar.gz
+RUN curl -O -L https://github.com/actions/runner/releases/download/v2.307.1/actions-runner-linux-x64-2.307.1.tar.gz
 
 # Extract the runner package
 RUN tar xzf ./actions-runner-linux-x64-${GITHUB_RUNNER_VERSION}.tar.gz
-
-# Configure the runner
-RUN ./config.sh --url https://github.com/${GITHUB_OWNER}/${GITHUB_REPOSITORY} --token ${GITHUB_PAT} --runnergroup ${RUNNER_GROUP} --name ${RUNNER_NAME} --work ${RUNNER_WORKDIR}
-
-# Run the installation script
-RUN ./bin/installdependencies.sh
 
 COPY entrypoint.sh /
 RUN chmod +x /entrypoint.sh
