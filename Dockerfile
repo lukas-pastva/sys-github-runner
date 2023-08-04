@@ -18,7 +18,7 @@ RUN mkdir actions-runner && cd actions-runner
 RUN curl -O -L https://github.com/actions/runner/releases/download/v2.307.1/actions-runner-linux-x64-2.307.1.tar.gz
 
 # Extract the runner package
-RUN tar xzf ./actions-runner-linux-x64-${GITHUB_RUNNER_VERSION}.tar.gz
+RUN tar xzf ./actions-runner-linux-x64-2.307.1.tar.gz
 
 COPY entrypoint.sh /
 RUN chmod +x /entrypoint.sh
