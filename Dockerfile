@@ -9,7 +9,7 @@ ENV GITHUB_REPOSITORY "<repo>"
 ENV RUNNER_GROUP "<group>"
 ENV RUNNER_TOKEN "<token>"
 
-RUN apk add --no-cache bc gettext jq unzip zip p7zip
+RUN apk add --no-cache bc gettext jq unzip zip p7zip curl
 
 # Create a runner directory
 RUN mkdir actions-runner && cd actions-runner
