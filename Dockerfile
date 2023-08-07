@@ -2,12 +2,12 @@ FROM docker:23.0.6-dind
 
 # The environment variables necessary for the GitHub Runner
 ENV RUNNER_NAME "github-runner"
-ENV GITHUB_PAT "<Your PAT>"
+#ENV GITHUB_PAT "<Your PAT>"
 ENV RUNNER_WORKDIR "_work"
-ENV GITHUB_OWNER "<owner>"
-ENV GITHUB_REPOSITORY "<repo>"
-ENV RUNNER_GROUP "<group>"
-ENV RUNNER_TOKEN "<token>"
+#ENV GITHUB_OWNER "<owner>"
+#ENV GITHUB_REPOSITORY "<repo>"
+#ENV RUNNER_GROUP "<group>"
+#ENV RUNNER_TOKEN "<token>"
 
 RUN apk add --no-cache bc gettext jq unzip zip p7zip curl
 
